@@ -9,7 +9,7 @@ public class Paciente extends Pessoa implements Serializable {
     private String matricula;
     private List<Tratamentos> tratamento;
 
-    public Paciente(String nome, String cpf, String RG, String dataDeNascimento, String email, String telefone, Endereco end, String matricula, List<Tratamentos> tratamento) {
+    public Paciente(String nome, String cpf, String RG, String dataDeNascimento, String email, String telefone, Endereco end, List<Tratamentos> tratamento) {
         super(nome, cpf, RG, dataDeNascimento, email, telefone, end);
         this.tratamento = tratamento;
         this.matricula = null;

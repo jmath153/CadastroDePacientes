@@ -1,13 +1,19 @@
 package controllers;
 
+import entidades.Endereco;
+import entidades.Paciente;
 import entidades.Tratamentos;
+import excecoes.PacienteJaCadastradoException;
 import janelas.TelaListaDeTratamentos;
 import sistema.SistemaGerenciadorDoSus;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.ArrayList;
+import java.util.List;
 
 public class SistemaCadastrarController implements ActionListener {
 
@@ -34,14 +40,26 @@ public class SistemaCadastrarController implements ActionListener {
         String estado =  JOptionPane.showInputDialog(janela,"Informe o estado do paciente: ");
         JOptionPane.showMessageDialog(janela,"Por último, selecione quais tratamentos serão realizados");
 
-        class controllerLista implements ActionListener{
+        Endereco end = new Endereco(rua,bairro,cidade,estado);
 
+        TelaListaDeTratamentos telaTrat = new TelaListaDeTratamentos();
+        telaTrat.addWindowListener(new WindowAdapter() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-
+            public void windowDeactivated(WindowEvent e) {
+                List<Tratamentos> t = telaTrat.getTratSelecionados();
+                Paciente p = new Paciente(nome,cpf,rg,dataNasc,email,telefone,end,t);
+                try{
+                    sistema.cadastrar(p);
+                    JOptionPane.showMessageDialog(janela,"Paciente cadastrado com sucesso");
+                    sistema.salvarDados();
+                } catch (PacienteJaCadastradoException ex){
+                    JOptionPane.showMessageDialog(janela,ex.getMessage());
+                }
             }
-        }
+        });
 
-       // sistema.salvarDados();
+
+
     }
+
 }

@@ -16,23 +16,30 @@ public class TelaListaDeTratamentos extends JFrame {
 
     private Tratamentos[] tratamentos = {Tratamentos.CARDIOVASCULAR,Tratamentos.MUSCULAR,Tratamentos.OFTALMO,Tratamentos.NEUROLOGICO,Tratamentos.PEDIATRIA,Tratamentos.PSICOLOGICO};
     private JList lista = new JList(tratamentos);
-
     private ArrayList<Tratamentos> tratSelecionados = new ArrayList<>();
     Button botaoOk = new Button("ok");
+
+    SistemaCadastrarController sistema;
     public TelaListaDeTratamentos(){
+
         configurarFrame();
+
         add(BorderLayout.NORTH,lista);
         add(BorderLayout.CENTER,botaoOk);
+
         lista.setVisibleRowCount(6);
         lista.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 
-        /*botaoOk.addActionListener(e->{
+
+        botaoOk.addActionListener(e->{
             for(Object o : lista.getSelectedValues()){
                 tratSelecionados.add((Tratamentos) o);
             }
             this.setVisible(false);
         });
-        */
+
+
+
 
 
     }
