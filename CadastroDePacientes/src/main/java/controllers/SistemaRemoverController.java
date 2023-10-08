@@ -17,7 +17,7 @@ public class SistemaRemoverController implements ActionListener {
     }
     @Override
     public void actionPerformed(ActionEvent e){
-            String matricula = JOptionPane.showInputDialog(janela,"Informe o paciente a ser removido");
+            String matricula = JOptionPane.showInputDialog(janela,"Informe a matrícula do paciente a ser removido");
             try {
                 sistema.remover(matricula);
                 JOptionPane.showMessageDialog(janela,"Paciente removido com sucesso");

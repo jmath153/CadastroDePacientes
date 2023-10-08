@@ -46,13 +46,13 @@ public class TelaPrincipal extends JFrame {
 
 
         botaoAdicionar = new JButton("Cadastrar",addImg);
-        botaoAdicionar.addActionListener(new SistemaCadastrarController(new SistemaGerenciadorDoSus(), this));
-        botaoPesquisar = new JButton("Remover",pesqImg);
-        botaoPesquisar.addActionListener(new SistemaConsultaController(new SistemaGerenciadorDoSus(), this));
-        botaoRemover = new JButton("Pesquisar",removeImg);
-        botaoRemover.addActionListener(new SistemaRemoverController(new SistemaGerenciadorDoSus(), this));
-        botaoPesquisarTratamento = new JButton("<html>Pacientes em tratamento<br>",removeImg);
-        botaoPesquisarTratamento.addActionListener(new SistemaConsultaTratController(new SistemaGerenciadorDoSus(),this));
+        botaoAdicionar.addActionListener(new SistemaCadastrarController(sistema, this));
+        botaoPesquisar = new JButton("Pesquisar",pesqImg);
+        botaoPesquisar.addActionListener(new SistemaConsultaController(sistema, this));
+        botaoRemover = new JButton("Remover",removeImg);
+        botaoRemover.addActionListener(new SistemaRemoverController(sistema, this));
+        botaoPesquisarTratamento = new JButton("<html>Pacientes em tratamento<br>",pesqTrarImg);
+        botaoPesquisarTratamento.addActionListener(new SistemaConsultaTratController(sistema,this));
 
         pan.add(botaoAdicionar);
         pan.add(botaoRemover);
@@ -70,5 +70,6 @@ public class TelaPrincipal extends JFrame {
         JFrame janela = new TelaPrincipal();
         janela.setVisible(true);
         janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
     }
 }

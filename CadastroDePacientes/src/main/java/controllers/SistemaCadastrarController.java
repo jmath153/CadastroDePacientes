@@ -42,12 +42,14 @@ public class SistemaCadastrarController implements ActionListener {
 
         Endereco end = new Endereco(rua,bairro,cidade,estado);
 
+
         TelaListaDeTratamentos telaTrat = new TelaListaDeTratamentos();
         telaTrat.addWindowListener(new WindowAdapter() {
             @Override
             public void windowDeactivated(WindowEvent e) {
                 List<Tratamentos> t = telaTrat.getTratSelecionados();
                 Paciente p = new Paciente(nome,cpf,rg,dataNasc,email,telefone,end,t);
+
                 try{
                     sistema.cadastrar(p);
                     JOptionPane.showMessageDialog(janela,"Paciente cadastrado com sucesso");
@@ -57,6 +59,7 @@ public class SistemaCadastrarController implements ActionListener {
                 }
             }
         });
+
 
 
 

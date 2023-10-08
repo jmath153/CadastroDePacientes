@@ -15,6 +15,7 @@ public class SistemaGerenciadorDoSus implements SistemaGerenciadorHospitalar{
 
     public SistemaGerenciadorDoSus() {
         this.pacientes = new HashMap<>();
+        recuperarDados();
     }
 
     public void salvarDados(){
@@ -76,5 +77,13 @@ public class SistemaGerenciadorDoSus implements SistemaGerenciadorHospitalar{
            if(p.getTratamento().equals(t)) pacientesEmTratamento.add(p);
        }
         return pacientesEmTratamento;
+    }
+
+    public Map<String, Paciente> getPacientes() {
+        return pacientes;
+    }
+
+    public void setPacientes(Map<String, Paciente> pacientes) {
+        this.pacientes = pacientes;
     }
 }

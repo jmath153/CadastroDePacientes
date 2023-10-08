@@ -20,7 +20,7 @@ public class SistemaConsultaController  implements ActionListener {
     public void actionPerformed(ActionEvent e){
             String nome = JOptionPane.showInputDialog(janela,"Informe o nome do paciente");
             try{
-                sistema.recuperarDados();
+
               Paciente p = sistema.consultarPaciente(nome);
               JOptionPane.showMessageDialog(janela,p.toString());
 

@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class GravadorDeDados {
-    public static final String ARQUIVO = "pacientes.dat";
+    public static final String ARQUIVO = "./pacientes.dat";
 
     public HashMap<String,Paciente> recuperar() throws IOException{
         ObjectInputStream in = null;
